@@ -35,6 +35,7 @@ public class GestionaPajaro {
 		char color;		
 		
 		for (int i = 0; i < pajaros.length; i++) {
+			pajaros[i] = new Pajaro();
 			edad = pedirEdad();
 			pajaros[i].setedad(edad);
 			color = pedirColor();
@@ -52,8 +53,8 @@ public class GestionaPajaro {
 	}
 
 	public static void main(String[] args) {
-		Pajaro[] pajarracos = crearPajaros();
-		mostrarPajaros(pajarracos);
+		Pajaro[] pajaros = crearPajaros();
+		mostrarPajaros(pajaros);
 
 		
 		//		p=new Pajaro(); //crea un objeto de la clase Pajaro
