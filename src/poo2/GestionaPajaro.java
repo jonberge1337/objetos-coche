@@ -1,31 +1,42 @@
 package poo2;
 
-import java.util.Scanner;
+//import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 public class GestionaPajaro {
+	
 	public static float mediaMetodo(int num1, int num2) {
 		return (num1 + num2) / 2f;
 	}
 	
 	public static int pedirEdad() {
 		int edad;
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Introduce la edad del pajaro: ");
-		edad = sc.nextInt();
+		edad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la edad del pajaro: "));
+//		System.out.println("Introduce la edad del pajaro: ");
+//		edad = sc.nextInt();
 		
-		sc.close();
+//		sc.close();
 		return edad;
 	}
 	
 	public static char pedirColor() {
+		String colorStr;
 		char color;
-		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Introduce la primera letra de la especie: ");
-		color = sc.next().charAt(0);
+		do {
+			colorStr = JOptionPane.showInputDialog("Introduce la primera letra del color: ");
+		} while (colorStr.length() > 1);
 		
-		sc.close();
+		color = colorStr.charAt(0);
+//		Scanner sc = new Scanner(System.in);
+
+//		System.out.println("Introduce la primera letra del color: ");
+//		color = sc.next().charAt(0);
+		
+//		sc.close();
 		return color;
 	}
 	
