@@ -4,8 +4,17 @@ public class Pajaro {
 	//*** atributos o propiedades ****
 	private char color; //propiedad o atributo color
 	private int edad; //propiedad o atributo edad
+	private String nombre;
 
 	//*** métodos de la clase ****
+	public void setNombre(String n) {
+		nombre = n;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
 	public void setedad(int e){
 		edad = e;
 	}

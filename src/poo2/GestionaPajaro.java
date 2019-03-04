@@ -6,33 +6,56 @@ public class GestionaPajaro {
 	public static float mediaMetodo(int num1, int num2) {
 		return (num1 + num2) / 2f;
 	}
-
-	public static void main(String[] args) {
-		Pajaro[] pajaros = new Pajaro[5];
-		//		float media;
+	
+	public static int pedirEdad() {
 		int edad;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Introduce la edad del pajaro: ");
+		edad = sc.nextInt();
+		
+		sc.close();
+		return edad;
+	}
+	
+	public static char pedirColor() {
 		char color;
 		Scanner sc = new Scanner(System.in);
-
+		
+		System.out.println("Introduce la primera letra de la especie: ");
+		color = sc.next().charAt(0);
+		
+		sc.close();
+		return color;
+	}
+	
+	public static Pajaro[] crearPajaros() {
+		Pajaro[] pajaros = new Pajaro[5];
+		int edad;
+		char color;		
+		
 		for (int i = 0; i < pajaros.length; i++) {
-			pajaros[i] = new Pajaro();
-
-			System.out.println("Introduce una edad: ");
-			edad = sc.nextInt();
+			edad = pedirEdad();
 			pajaros[i].setedad(edad);
-
-//			sc.nextLine();
-
-			System.out.println("Introduce la inicial del color del pajaro: ");
-			color = sc.next().charAt(0);
+			color = pedirColor();
 			pajaros[i].setcolor(color);
 		}
-
-		for (int i = 0; i < pajaros.length; i++) {
-			System.out.println(pajaros[i] + "es de color " + pajaros[i].getcolor() +
-					" y tiene " + pajaros[i].getEdad() + " años");
+		
+		return pajaros;		
+	}
+	
+	public static void mostrarPajaros(Pajaro[] pajaritos) {
+		for (int i = 0; i < pajaritos.length; i++) {
+			System.out.println("Pajaro " + i +  "es de color " + pajaritos[i].getcolor() +
+					" y tiene " + pajaritos[i].getEdad() + " años");
 		}
-		sc.close();
+	}
+
+	public static void main(String[] args) {
+		Pajaro[] pajarracos = crearPajaros();
+		mostrarPajaros(pajarracos);
+
+		
 		//		p=new Pajaro(); //crea un objeto de la clase Pajaro
 
 		//		p.setedad(7); //actualiza la edad a 5
