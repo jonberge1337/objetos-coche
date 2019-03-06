@@ -1,100 +1,90 @@
 package poo2;
 
-//import java.util.Scanner;
-
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class GestionaPajaro {
-	
-	public static float mediaMetodo(int num1, int num2) {
-		return (num1 + num2) / 2f;
-	}
-	
-	public static int pedirEdad() {
-		int edad;
-//		Scanner sc = new Scanner(System.in);
-		
-		edad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la edad del pajaro: "));
-//		System.out.println("Introduce la edad del pajaro: ");
-//		edad = sc.nextInt();
-		
-//		sc.close();
-		return edad;
-	}
-	
-	public static char pedirColor() {
-		String colorStr;
-		char color;
-		
-		do {
-			colorStr = JOptionPane.showInputDialog("Introduce la primera letra del color: ");
-		} while (colorStr.length() > 1);
-		
-		color = colorStr.charAt(0);
-//		Scanner sc = new Scanner(System.in);
-
-//		System.out.println("Introduce la primera letra del color: ");
-//		color = sc.next().charAt(0);
-		
-//		sc.close();
-		return color;
-	}
-	
-	public static Pajaro[] crearPajaros() {
-		Pajaro[] pajaros = new Pajaro[5];
-		int edad;
-		char color;		
-		
-		for (int i = 0; i < pajaros.length; i++) {
-			pajaros[i] = new Pajaro();
-			edad = pedirEdad();
-			pajaros[i].setedad(edad);
-			color = pedirColor();
-			pajaros[i].setcolor(color);
-		}
-		
-		return pajaros;		
-	}
-	
-	public static void mostrarPajaros(Pajaro[] pajaritos) {
-		for (int i = 0; i < pajaritos.length; i++) {
-			System.out.println("Pajaro " + i +  "es de color " + pajaritos[i].getcolor() +
-					" y tiene " + pajaritos[i].getEdad() + " años");
-		}
-	}
 
 	public static void main(String[] args) {
-		Pajaro[] pajaros = crearPajaros();
-		mostrarPajaros(pajaros);
+		Pajaro[] pajaros=new Pajaro[5];
+		int[] sumaColores;
+		float media;
 
+		rellenarArray(pajaros);
+		imprimirArray(pajaros);
+		media = mediaEdades(pajaros);
+		imprimirMedia(media);
+		sumaColores = contarColores(pajaros);
+		contarColores(pajaros);
+		mostrarContadores(sumaColores);
+	}
+	
+	public static int[] contarColores(Pajaro[] pajaritos) {
+		int[] cantidades = {0,0,0,0,0,0};
 		
-		//		p=new Pajaro(); //crea un objeto de la clase Pajaro
-
-		//		p.setedad(7); //actualiza la edad a 5
-		//		p.setcolor('v');
-
-		//		p1 = new Pajaro();
-		//		p1.setedad(6);
-		//		p1.setcolor('g');
-
-		//		System.out.print("El primero pajaro tiene ");
-		//		p1.printedad();
-		//		System.out.print("años y tiene el color ");
-		//		p1.printcolor();
-		//		System.out.println();
-		//		
-		//		System.out.print("El segundo pajaro tiene ");
-		//		p.printedad();
-		//		System.out.print("años y tiene el color ");
-		//		p.printcolor();
-		//		System.out.println();
-
-		//		media = mediaMetodo(p.getEdad(), p1.getEdad());
-
-		//		media = ((float) p.getEdad() + p1.getEdad()) / 2;
-		//		System.out.println("La media de la edad es " + media);
-
-		//		p.printedad(); //muestra por pantalla dicha edad
+		for (int i = 0; i < pajaritos.length; i++) {
+			switch (pajaritos[i].getcolor()) {
+			case "verde": cantidades[0] += 1; break;
+			case "amarillo": cantidades[1] += 1; break;
+			case "gris": cantidades[2] += 1; break;
+			case "negro": cantidades[3] += 1; break;
+			case "blanco": cantidades[4] += 1; break;
+			default: cantidades[5] += 1; break;
+			}
+		}
+		
+		return cantidades;
+	}
+	
+	public static void mostrarContadores(int[] contadores) {
+		for (int i = 0; i < contadores.length; i++) {
+			switch (i) {
+			case 0: System.out.println("Hay " + contadores[i] + " pajaros verde"); break;
+			case 1: System.out.println("Hay " + contadores[i] + " pajaros amarillo"); break;	
+			case 2: System.out.println("Hay " + contadores[i] + " pajaros gris"); break;
+			case 3: System.out.println("Hay " + contadores[i] + " pajaros negro"); break;
+			case 4: System.out.println("Hay " + contadores[i] + " pajaros blanco"); break;
+			default: System.out.println("Hay " + contadores[i] + " pajaros de color no establecidos"); break;
+			}
+		}
 	}
 
+	public static void imprimirMedia(float media) {
+		System.out.println("La media de las edades es de "+media);
+	}
+
+	public static float mediaEdades(Pajaro[] pajaros ) {
+		float media;
+		int suma=0;
+		for(int i=0;i<pajaros.length;i++) {
+			suma=suma+pajaros[i].getEdad();
+		}
+		media=suma/5f;
+		return media;
+	}
+
+	public static void imprimirArray(Pajaro[] pajaros) {
+		for(int i=0;i<pajaros.length;i++) {
+			System.out.println("El Pajaro "+(i+1)+" tiene   "+pajaros[i].getEdad()+" años ");
+			pajaros[i].printcolor();
+		}
+	}
+
+	public static void rellenarArray(Pajaro[] pajaros) {
+		int e;
+		char c;
+		Scanner sc=new Scanner(System.in);		
+		
+		for(int i=0;i<pajaros.length;i++) {
+			pajaros[i]=new Pajaro();			
+			System.out.println("Mete edad");	
+
+			e=sc.nextInt();
+			sc.nextLine();
+			System.out.println("Mete  char color");		
+			c=sc.nextLine().charAt(0);
+			pajaros[i].setedad(e);
+			pajaros[i].setcolor(c);
+		}
+		sc.close();
+	}
 }
