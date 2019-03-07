@@ -22,12 +22,12 @@ public class GestionaPajaro {
 		
 		for (int i = 0; i < pajaritos.length; i++) {
 			switch (pajaritos[i].getcolor()) {
-			case 'v': cantidades[0] += 1; break;
-			case 'a': cantidades[1] += 1; break;
-			case 'g': cantidades[2] += 1; break;
-			case 'n': cantidades[3] += 1; break;
-			case 'b': cantidades[4] += 1; break;
-			default: cantidades[5] += 1; break;
+			case 'v': cantidades[0]++; break;
+			case 'a': cantidades[1]++; break;
+			case 'g': cantidades[2]++; break;
+			case 'n': cantidades[3]++; break;
+			case 'b': cantidades[4]++; break;
+			default: cantidades[5]++; break;
 			}
 		}
 		
