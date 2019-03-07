@@ -14,20 +14,19 @@ public class GestionaPajaro {
 		media = mediaEdades(pajaros);
 		imprimirMedia(media);
 		sumaColores = contarColores(pajaros);
-		contarColores(pajaros);
 		mostrarContadores(sumaColores);
 	}
 	
 	public static int[] contarColores(Pajaro[] pajaritos) {
-		int[] cantidades = {0,0,0,0,0,0};
+		int[] cantidades = new int[6]; // por defecto os arrays se inicializan a 0
 		
 		for (int i = 0; i < pajaritos.length; i++) {
 			switch (pajaritos[i].getcolor()) {
-			case "verde": cantidades[0] += 1; break;
-			case "amarillo": cantidades[1] += 1; break;
-			case "gris": cantidades[2] += 1; break;
-			case "negro": cantidades[3] += 1; break;
-			case "blanco": cantidades[4] += 1; break;
+			case 'v': cantidades[0] += 1; break;
+			case 'a': cantidades[1] += 1; break;
+			case 'g': cantidades[2] += 1; break;
+			case 'n': cantidades[3] += 1; break;
+			case 'b': cantidades[4] += 1; break;
 			default: cantidades[5] += 1; break;
 			}
 		}
@@ -36,15 +35,11 @@ public class GestionaPajaro {
 	}
 	
 	public static void mostrarContadores(int[] contadores) {
+		
+		String[] colores = {"verde", "amarillo", "gris", "negro", "blanco", "color no establecido"};
+		
 		for (int i = 0; i < contadores.length; i++) {
-			switch (i) {
-			case 0: System.out.println("Hay " + contadores[i] + " pajaros verde"); break;
-			case 1: System.out.println("Hay " + contadores[i] + " pajaros amarillo"); break;	
-			case 2: System.out.println("Hay " + contadores[i] + " pajaros gris"); break;
-			case 3: System.out.println("Hay " + contadores[i] + " pajaros negro"); break;
-			case 4: System.out.println("Hay " + contadores[i] + " pajaros blanco"); break;
-			default: System.out.println("Hay " + contadores[i] + " pajaros de color no establecidos"); break;
-			}
+			System.out.println("Hay " + contadores[i] + "pajaros" + colores[i]);
 		}
 	}
 
@@ -80,7 +75,7 @@ public class GestionaPajaro {
 
 			e=sc.nextInt();
 			sc.nextLine();
-			System.out.println("Mete  char color");		
+			System.out.println("Mete char color");		
 			c=sc.nextLine().charAt(0);
 			pajaros[i].setedad(e);
 			pajaros[i].setcolor(c);

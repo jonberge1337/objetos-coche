@@ -27,20 +27,8 @@ public class Pajaro {
 	public void setcolor(char c){
 		color=c;
 	}
-	public String getcolor() {
-		if(color == 'v') {
-			return "verde";
-		}else if(color == 'a'){
-			return "amarillo";
-		}else if(color == 'g') {
-			return "gris";
-		}else if(color == 'n') {
-			return "negro";
-		}else if(color == 'b') {
-			return "blanco";
-		}else {
-			return "color no establecido";
-		}
+	public char getcolor() {
+		return color;
 	}
 	public void printcolor(){
 		switch(color){
