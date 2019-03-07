@@ -20,6 +20,19 @@ public class GestionAlumno {
 		}
 	}
 	
+	public static void introdurcirNotas2(Alumno alum) {
+		int[] notas = new int[3];
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Las notas de " + alum.getNombre());
+		for (int i = 0; i < notas.length; i++) {
+			System.out.println("Introduce la nota de la evaluacion" + (i+1));
+			notas[i] = sc.nextInt();
+		}
+		alum.setNota(notas);
+	}
+	
 	public static void introducirNotas(Alumno alum) {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -27,7 +40,7 @@ public class GestionAlumno {
 		System.out.println("Las notas de " + alum.getNombre());
 		for (int i = 0; i < alum.getNota().length; i++) {
 			System.out.println("Introduce la nota de la evaluacion" + (i+1));
-			alum.getNota()[i] = sc.nextInt();
+			alum.getNota()[i] = sc.nextInt(); // nos retorna el array y al indice le introducimos el valor
 		}
 	}
 	
