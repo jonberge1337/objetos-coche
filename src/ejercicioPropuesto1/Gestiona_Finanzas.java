@@ -9,6 +9,7 @@ public class Gestiona_Finanzas {
 		double eurosMod;
 		double dolares;
 		double dolaresMod;
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		Finanzas cambio = new Finanzas();
 		Finanzas cambio2 = new Finanzas(1.12);
