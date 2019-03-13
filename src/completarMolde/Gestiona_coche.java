@@ -8,9 +8,11 @@ public class Gestiona_coche {
 		int menu;
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce un numero de las siguientes opciones: ");
-		System.out.println("1. Acelerar \n2. Frenar \n3. Ver velocidad \n4. salir");
+
 		do {
+			System.out.println("Introduce un numero de las siguientes opciones: ");
+			System.out.println("1. Acelerar \n2. Frenar \n3. Ver velocidad \n4. salir");
+
 			try {
 				menu = sc.nextInt();
 			} catch (Exception e) {
@@ -31,9 +33,9 @@ public class Gestiona_coche {
 		int velocidad;
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Introduce en cuanto quieres aumentar la velocidad: ");
+		
 		do {
+			System.out.println("Introduce en cuanto quieres aumentar la velocidad: ");
 			try {
 				velocidad = sc.nextInt();
 			} catch (Exception e) {
@@ -44,9 +46,9 @@ public class Gestiona_coche {
 				System.out.println("Tienes que meter un numero mayor que 0");
 			}
 		} while (velocidad < 1);
-		
+
 		if(velocidad + coche.getVelocidad() > 120) {
-			coche.acelera(120 - coche.getVelocidad());;
+			coche.acelera(120 - coche.getVelocidad());
 		} else {
 			coche.acelera(velocidad);
 		}
@@ -55,9 +57,9 @@ public class Gestiona_coche {
 
 	public static void frenar(Coche coche) {
 		int velocidad;
-
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
+
 		System.out.println("Introduce en cuanto quieres frenar la velocidad");
 		do {
 			try {
@@ -93,13 +95,14 @@ public class Gestiona_coche {
 
 		int menu;
 		Coche bmw = new Coche();
+
 		do {
 			menu = elegirMenu();
 			switch (menu) {
 			case 1: acelera(bmw); break;
 			case 2: frenar(bmw); break;
 			case 3: verVelocidad(bmw.getVelocidad());
-			default: System.out.println("Programa finalizado");	break;
+			case 4: System.out.println("Programa finalizado");	break;
 			}
 		} while (menu != 4);
 
