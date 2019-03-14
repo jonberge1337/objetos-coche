@@ -59,8 +59,18 @@ public class GestionAlumnoArray {
 			alumnos[i] = new Alumno(nombre, edad);
 			
 			for (int j = 0; j < notas.length; j++) {
-				System.out.println("Introduce la nota de la evaluacion " + (j+1) + ":");
-				notas[j] = sc.nextInt();
+				do {
+					System.out.println("Introduce la nota de la evaluacion " + (j+1) + ":");
+					try {
+						notas[j] = sc.nextInt();
+					} catch (Exception e) {
+						notas[j] = 0;
+					}
+					
+					if(notas[j] < 1 || notas[j] > 10) {
+						System.out.println("La nota tiene que ser entre 1 - 10: ");
+					}
+				} while (notas[j] < 1 || notas[j] > 10);
 			}
 			sc.nextLine();
 			alumnos[i].setNota(notas);
