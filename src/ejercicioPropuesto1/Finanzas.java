@@ -10,21 +10,13 @@ public class Finanzas {
 	Finanzas(double cambio){
 		this.cambio = cambio;
 	}
-	
-	public void setCambio(double cambio) {
-		this.cambio = cambio;
-	}
-	
+
 	public double getCambio() {
 		return cambio;
 	}
-	
-	public double dolaresToEuros (double dinero) {
-		return dinero /= this.cambio;
+
+	public void setCambio(double cambio) {
+		this.cambio = cambio;
 	}
-	
-	public double eurosToDolares (double dinero) {
-		return  dinero *= this.cambio;
-	}
-	
+		
 }
