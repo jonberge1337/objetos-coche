@@ -80,7 +80,7 @@ public class GestionAlumnoArray {
 	public static void main(String[] args) {
 		Alumno[] alumnos = new Alumno[3];
 		
-		rellenarAlumnos2(alumnos);
+		rellenarAlumnos(alumnos);
 		mostrarAlumnos(alumnos);
 	}
 
