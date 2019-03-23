@@ -13,6 +13,7 @@ public class GestionaNumero {
 		System.out.println("El doble de " + numero + " es: " + n1.getDoble());
 		System.out.println("El triple de " + numero + " es: " + n1.getTriple());
 		System.out.println("El cuadruple de " + numero + " es: " + n1.getCuadruple());
+		System.out.println("El valor es " + n1.getValor());
 	}
 
 }
