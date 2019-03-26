@@ -5,28 +5,8 @@ import java.util.*;
 public class Uso_Empleado {
 
 	public static void main(String[] args) {
-		//		Empleado empleado1 = new Empleado("Paco Gómez", 85000, 1990, 12, 17);
-		//		
-		//		Empleado empleado2 = new Empleado("Ana López", 95000, 1995, 06, 02);
-		//		
-		//		Empleado empleado3 = new Empleado("Maria Martín", 105000, 2002, 03, 15);
-		//		
-		//		empleado1.setSubeSueldo(5);
-		//		
-		//		empleado1.setSubeSueldo(5);
-		//		
-		//		empleado1.setSubeSueldo(5);
-		//		
-		//		System.out.println("Nombre: " + empleado1.getNombre() + " Sueldo: " + empleado1.getSueldo() +
-		//				" Fecha de Alta: " + empleado1.getAltaContrato());
-		//		
-		//		System.out.println("Nombre: " + empleado2.getNombre() + " Sueldo: " + empleado2.getSueldo() +
-		//				" Fecha de Alta: " + empleado2.getAltaContrato());
-		//		
-		//		System.out.println("Nombre: " + empleado3.getNombre() + " Sueldo: " + empleado3.getSueldo() +
-		//				" Fecha de Alta: " + empleado3.getAltaContrato());
 
-		Empleado[] misEmpleados = new Empleado[3];
+		Empleado[] misEmpleados = new Empleado[4];
 
 		misEmpleados[0] = new Empleado("Paco Gómez", 85000, 1990, 12, 17);
 
@@ -34,9 +14,7 @@ public class Uso_Empleado {
 
 		misEmpleados[2] = new Empleado("María martín", 105000, 2002, 03, 15);
 
-//		for (int i = 0; i < 3; i++) {
-//			misEmpleados[i].setSubeSueldo(5);
-//		}
+		misEmpleados[3] = new Empleado("Antonio Fernández");
 		
 		for (Empleado empleado : misEmpleados) {
 			
@@ -50,10 +28,6 @@ public class Uso_Empleado {
 						empleado.getSueldo() + " Fecha de Alta: " + empleado.getAltaContrato());
 		}
 
-//		for (int i = 0; i < misEmpleados.length; i++) {
-//			System.out.println("Nombre:" + misEmpleados[i].getNombre() + " Sueldo: " +
-//					misEmpleados[i].getSueldo() + " Fecha de Alta: " + misEmpleados[i].getAltaContrato());
-//		}
 
 	}
 
@@ -71,6 +45,10 @@ class Empleado {
 
 		altaContrato = calendario.getTime();
 
+	}
+	
+	public Empleado(String nom) {
+		this(nom, 30000, 2000, 01, 01);
 	}
 
 	public String getNombre() {
