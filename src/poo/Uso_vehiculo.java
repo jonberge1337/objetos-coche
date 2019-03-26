@@ -18,6 +18,8 @@ public class Uso_vehiculo {
 		System.out.println(micoche1.dime_datos() + " " + micoche1.dime_asientos() + " " + micoche1.dime_climatizador());
 		
 		System.out.println(mifurgoneta1.dimeDatosFurgoneta());
+		
+		System.out.println(mifurgoneta1.color);
 	}
 
 }

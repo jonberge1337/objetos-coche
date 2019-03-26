@@ -12,7 +12,7 @@ public class Coche {
 
 	private int peso_plataforma;
 
-	private String color;
+	protected String color;
 	
 	private int peso_total;
 	
