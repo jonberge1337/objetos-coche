@@ -54,7 +54,7 @@ class Empleado {
 	public String getNombre() {
 		return this.nombre;
 	}
-
+	
 	public double getSueldo() {
 		return this.sueldo;
 	}
@@ -74,5 +74,32 @@ class Empleado {
 	private double sueldo;
 
 	private Date altaContrato;
+	
+	private static int IdSiguiente;
+	
+	private int Id;
+}
 
+class Jefatura extends Empleado{
+
+	public Jefatura(String nom, double sue, int agno, int mes, int dia) {
+		
+		super(nom, sue, agno, mes, dia);
+		
+	}
+	
+	public void estableceIncentivo(double b) {
+		
+		incentivo=b;
+		
+	}
+	
+	public double getSueldo() {
+		double sueldoJefe = super.getSueldo();
+		
+		return sueldoJefe + incentivo;
+	}
+	
+	private double incentivo;
+	
 }
